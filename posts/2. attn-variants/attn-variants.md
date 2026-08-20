@@ -6,7 +6,7 @@
 
 Scaled dot-product attention — `softmax(Q @ K.T / sqrt(d_k)) @ V` — shipped in 2017 and every LLM since runs on variants of it. The equation stayed the same; the bottlenecks changed. KV cache explodes with long contexts, quadratic cost kills throughput, training becomes unstable at 8B+ scale.
 
-Six efficiency variants solve these bottlenecks: **GQA**, **MLA**, **SWA**, **NSA**, **Gated Attention**, and **Hybrid Attention**. Each modifies the four foundation mechanisms — Self-Attention, MHA, Causal, and Cross-Attention — covered in the [previous post](https://david-hoangt.github.io/posts/2026-03-30-self-attn/).
+Six efficiency variants solve these bottlenecks: **GQA**, **MLA**, **SWA**, **NSA**, **Gated Attention**, and **Hybrid Attention**. Each modifies the four foundation mechanisms — Self-Attention, MHA, Causal, and Cross-Attention — covered in the [previous post](https://davidwhiteboard.github.io/posts/2026-03-30-self-attn/).
 
 Same running example throughout: *"The CEO announced record earnings on Friday"* — 7 tokens, `d_model = 64`.
 
@@ -14,7 +14,7 @@ Same running example throughout: *"The CEO announced record earnings on Friday"*
 
 ## Quick Recap: The Four Foundations
 
-Full deep-dive with implementations in the [previous post](https://david-hoangt.github.io/posts/2026-03-30-self-attn/). Here's what you need to follow the variants:
+Full deep-dive with implementations in the [previous post](https://davidwhiteboard.github.io/posts/2026-03-30-self-attn/). Here's what you need to follow the variants:
 
 - **Self-Attention** — `softmax(Q @ K.T / sqrt(d_k)) @ V`. Project each token into Q, K, V, compute pairwise relevance, weighted sum of values. `O(n^2 * d)` cost.
 - **Multi-Head Attention (MHA)** — `Concat(head_1, ..., head_h) @ W_O`. Run **h** parallel heads in `d_k = d_model / h` subspaces. Same compute, richer representations.
@@ -136,7 +136,7 @@ class GroupedQueryAttention(nn.Module):
         return self.W_o(context), weights
 ```
 
-Run the full implementation with shape checks and KV cache comparison in the [attention variants notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
+Run the full implementation with shape checks and KV cache comparison in the [attention variants notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
 
 ## Key Takeaways
 
@@ -246,7 +246,7 @@ class MultiHeadLatentAttention(nn.Module):
         return self.W_o(context), weights
 ```
 
-Run the full implementation with cache comparison in the [attention variants notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
+Run the full implementation with cache comparison in the [attention variants notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
 
 ## Key Takeaways
 
@@ -355,7 +355,7 @@ class SlidingWindowAttention(nn.Module):
         return self.W_o(context), weights
 ```
 
-Run the full implementation with mask visualization in the [attention variants notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
+Run the full implementation with mask visualization in the [attention variants notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
 
 ## Key Takeaways
 
@@ -504,7 +504,7 @@ class NativeSparseAttention(nn.Module):
         return self.W_o(context), g
 ```
 
-The full implementation with all three path methods and gate analysis is in the [attention variants notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
+The full implementation with all three path methods and gate analysis is in the [attention variants notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
 
 ## Key Takeaways
 
@@ -595,7 +595,7 @@ class GatedAttention(nn.Module):
         return gate * attn_out, weights                        # element-wise suppress
 ```
 
-Run with gate analysis and QK-Norm score comparison in the [attention variants notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
+Run with gate analysis and QK-Norm score comparison in the [attention variants notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
 
 ## Key Takeaways
 
@@ -724,7 +724,7 @@ class HybridAttentionBlock(nn.Module):
         return x
 ```
 
-Run with layer layout visualization and parameter comparison in the [attention variants notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
+Run with layer layout visualization and parameter comparison in the [attention variants notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/4.%20attention_variants.ipynb).
 
 ## Key Takeaways
 

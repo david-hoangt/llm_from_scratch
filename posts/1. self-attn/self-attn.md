@@ -14,7 +14,7 @@ By the end of this post you will have built, from scratch in PyTorch, working im
 
 No history lesson. No survey of 200 papers. Just the mechanics, the shapes, and the code. If you know what a tensor is and can read a `nn.Module`, you're ready.
 
-All code in this post is available as runnable Jupyter notebooks at [github.com/david-hoangt/llm_from_scratch](https://github.com/david-hoangt/llm_from_scratch/tree/main/attention).
+All code in this post is available as runnable Jupyter notebooks at [github.com/davidwhiteboard/llm_from_scratch](https://github.com/davidwhiteboard/llm_from_scratch/tree/main/attention).
 
 Note: We'll thread a single running example through the entire post: the sentence *"The CEO announced record earnings on Friday"*, embedded into `d_model = 64`. Watch how each mechanism transforms these vectors step by step.
 
@@ -91,7 +91,7 @@ class SelfAttention(nn.Module):
 
 Simple, but expensive. Every token attends to every other token.
 
-📓 [Run the full self-attention notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/1.%20self_attention.ipynb) — includes bidirectional and causal modes with shape checks and attention heatmaps.
+📓 [Run the full self-attention notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/1.%20self_attention.ipynb) — includes bidirectional and causal modes with shape checks and attention heatmaps.
 
 ## Computational Cost
 
@@ -154,7 +154,7 @@ class MultiHeadAttention(nn.Module):
         return out, torch.stack(weights, dim=1)    # weights: (batch, n_heads, seq_len, seq_len)
 ```
 
-📓 [Run the multi-head attention notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/2.%20mutihead_attention.ipynb) — includes per-head visualizations and a detailed single-head vs. multi-head comparison table.
+📓 [Run the multi-head attention notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/2.%20mutihead_attention.ipynb) — includes per-head visualizations and a detailed single-head vs. multi-head comparison table.
 
 ## Key Takeaways
 
@@ -241,7 +241,7 @@ class CausalSelfAttention(nn.Module):
         return torch.bmm(weights, V)
 ```
 
-📓 Causal attention is covered in the [self-attention notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/1.%20self_attention.ipynb) — the unified `SelfAttention` class handles both bidirectional and causal modes via an optional mask parameter.
+📓 Causal attention is covered in the [self-attention notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/1.%20self_attention.ipynb) — the unified `SelfAttention` class handles both bidirectional and causal modes via an optional mask parameter.
 
 ## Key Takeaways
 
@@ -333,7 +333,7 @@ class CrossAttention(nn.Module):
         return out, weights
 ```
 
-📓 [Run the cross-attention notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/attention/3.%20cross_attention.ipynb) — includes padding mask handling and a translation alignment visualization.
+📓 [Run the cross-attention notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/attention/3.%20cross_attention.ipynb) — includes padding mask handling and a translation alignment visualization.
 
 ## Key Takeaways
 

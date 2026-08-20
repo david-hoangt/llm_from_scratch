@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The previous attention ([[1]](https://david-hoangt.github.io/posts/2026-03-30-self-attn/), [[2]](https://david-hoangt.github.io/posts/2026-04-XX-attn-variants/)) posts focused on *which* tokens attend to which other tokens: Q/K scores, causal masks, multi-head attention, and efficient variants. This post covers the missing axis: how does the model know *where* each token sits?
+The previous attention ([[1]](https://davidwhiteboard.github.io/posts/2026-03-30-self-attn/), [[2]](https://davidwhiteboard.github.io/posts/2026-04-XX-attn-variants/)) posts focused on *which* tokens attend to which other tokens: Q/K scores, causal masks, multi-head attention, and efficient variants. This post covers the missing axis: how does the model know *where* each token sits?
 
 We'll use one running example throughout: *"The CEO announced record earnings on Friday"* (7 tokens, zero-indexed from `The = 0` to `Friday = 6`). Code examples use `d_model = 64` with `n_heads = 4`, giving `d_k = d_model / n_heads = 16`.
 
@@ -19,7 +19,7 @@ Explicit PE schemes inject position at one of three points in the attention pipe
 - **Relative PE / ALiBi**: at the scores, adds a position-dependent bias after the dot product, before softmax
 - **NoPE**: no explicit injection, relies on the causal mask in decoder-only models
 
-**Note:** All implementations in this post are available as runnable notebooks at [github.com/david-hoangt/llm_from_scratch](https://github.com/david-hoangt/llm_from_scratch/tree/main/src/positional_encoding).
+**Note:** All implementations in this post are available as runnable notebooks at [github.com/davidwhiteboard/llm_from_scratch](https://github.com/davidwhiteboard/llm_from_scratch/tree/main/src/positional_encoding).
 
 ---
 
@@ -473,7 +473,7 @@ k_rot = rope(K)
 scores = torch.matmul(q_rot, k_rot.transpose(-2, -1)) / math.sqrt(d_k)
 ```
 
-Run the full implementation with relative position property verification in the [positional encoding notebook](https://github.com/david-hoangt/llm_from_scratch/blob/main/src/positional_encoding/5.%20positional_encoding.ipynb).
+Run the full implementation with relative position property verification in the [positional encoding notebook](https://github.com/davidwhiteboard/llm_from_scratch/blob/main/src/positional_encoding/5.%20positional_encoding.ipynb).
 
 ## Gotchas and Trade-offs
 

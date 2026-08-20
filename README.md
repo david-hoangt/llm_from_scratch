@@ -14,7 +14,7 @@ Building LLM internals from scratch in PyTorch — attention mechanisms, one not
 
 Companion blog post with diagrams and architectural context:
 
-- [The Mechanics of Attention: Self, Multi-Head, Causal, and Cross](https://david-hoangt.github.io) — covers all four attention variants with the running example *"The CEO announced record earnings on Friday"*
+- [The Mechanics of Attention: Self, Multi-Head, Causal, and Cross](https://davidwhiteboard.github.io) — covers all four attention variants with the running example *"The CEO announced record earnings on Friday"*
 
 ## Setup
 

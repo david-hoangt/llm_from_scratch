@@ -213,3 +213,5 @@ __marimo__/
 .python-version
 CLAUDE.md
 test.ipynb
+# local model weights cache (safe to delete)
+.hf_cache/
