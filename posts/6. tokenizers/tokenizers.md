@@ -26,7 +26,7 @@ If you only need the practical answer:
 - **BERT-family encoder** → WordPiece, 30k vocab, `##` continuation markers
 - **Quick experiments / learning** → BPE from scratch, then compare against `tiktoken`
 
-**Note:** All implementations in this post are available as a runnable notebook at [github.com/davidwhiteboard/llm_from_scratch](https://github.com/davidwhiteboard/llm_from_scratch/tree/main/src/tokenizers).
+**Note:** All implementations in this post are available as a runnable notebook at [github.com/backpropolis/nlp_from_scratch](https://github.com/backpropolis/nlp_from_scratch/tree/main/src/tokenizers).
 
 ---
 

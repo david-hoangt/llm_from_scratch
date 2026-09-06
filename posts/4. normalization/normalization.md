@@ -19,7 +19,7 @@ If you only need the practical map:
 - **QK-Norm**: normalize only `Q` and `K`; targets attention-logit drift rather than residual-stream drift
 - **DyT / Derf**: normalization-free research line; replaces statistics with a learned point-wise S-curve
 
-**Note:** The repo for this series is available at [github.com/davidwhiteboard/llm_from_scratch](https://github.com/davidwhiteboard/llm_from_scratch); the snippets below are short PyTorch fragments you can paste into a notebook.
+**Note:** The repo for this series is available at [github.com/backpropolis/nlp_from_scratch](https://github.com/backpropolis/nlp_from_scratch); the snippets below are short PyTorch fragments you can paste into a notebook.
 
 ---
 

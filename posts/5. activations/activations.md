@@ -20,7 +20,7 @@ Each activation tweaks the same `f(x)` graph in a different way:
 - **ReLU²**: `max(0, x)²`, a 2021 revival, surfaced again in some 2024-25 architectures
 
 
-**Note:** All implementations in this post are available as runnable notebooks at [github.com/davidwhiteboard/llm_from_scratch](https://github.com/davidwhiteboard/llm_from_scratch/tree/main/src/activations).
+**Note:** All implementations in this post are available as runnable notebooks at [github.com/backpropolis/nlp_from_scratch](https://github.com/backpropolis/nlp_from_scratch/tree/main/src/activations).
 
 ---
 

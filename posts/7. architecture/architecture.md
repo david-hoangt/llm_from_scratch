@@ -28,7 +28,7 @@ What this post adds that no previous post covered:
 - **Weight loading**: mapping a published `state_dict` onto our modules, and the conventions that silently break it
 - **Generation**: prefill and decode, and why the KV cache changes the shape of the computation
 
-**Note:** Everything below is in one runnable notebook: [open it in Colab](https://colab.research.google.com/github/davidwhiteboard/llm_from_scratch/blob/main/src/architecture/9.%20architecture.ipynb) to build the model, load the real weights, and generate text without installing anything, or read the source at [github.com/davidwhiteboard/llm_from_scratch](https://github.com/davidwhiteboard/llm_from_scratch/tree/main/src/architecture).
+**Note:** Everything below is in one runnable notebook: [open it in Colab](https://colab.research.google.com/github/backpropolis/nlp_from_scratch/blob/main/src/architecture/9.%20architecture.ipynb) to build the model, load the real weights, and generate text without installing anything, or read the source at [github.com/backpropolis/nlp_from_scratch](https://github.com/backpropolis/nlp_from_scratch/tree/main/src/architecture).
 
 ---
 
